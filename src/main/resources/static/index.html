@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Blood Bank Inventory & Donor Eligibility Tracker</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <div class="blood-icon">
+            🩸
+        </div>
+
+        <div>
+
+            <h2>Blood Bank</h2>
+
+            <span>
+                Management System
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="menu">
+
+        <a href="#dashboard"
+           class="menu-item active">
+
+            <span>▣</span>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="#donors"
+           class="menu-item">
+
+            <span>👤</span>
+
+            Donors
+
+        </a>
+
+
+        <a href="#donations"
+           class="menu-item">
+
+            <span>🩸</span>
+
+            Donations
+
+        </a>
+
+
+        <a href="#inventory"
+           class="menu-item">
+
+            <span>▤</span>
+
+            Inventory
+
+        </a>
+
+
+        <a href="#issue"
+           class="menu-item">
+
+            <span>↗</span>
+
+            Issue Blood
+
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-bottom">
+
+        <p>
+            Blood Bank Tracker
+        </p>
+
+        <small>
+            Spring Boot Application
+        </small>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<div class="main-content">
+
+
+    <!-- =================================================
+         DASHBOARD
+    ================================================== -->
+
+    <section id="dashboard">
+
+
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Monitor blood inventory, donors and donations
+                </p>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                System Active
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <div class="summary-cards">
+
+
+            <!-- TOTAL DONORS -->
+
+            <div class="summary-card">
+
+                <div class="card-icon donor-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Donors
+                    </p>
+
+                    <h2 id="totalDonors">
+                        0
+                    </h2>
+
+                    <span>
+                        Registered donors
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AVAILABLE UNITS -->
+
+            <div class="summary-card">
+
+                <div class="card-icon blood-icon-card">
+                    🩸
+                </div>
+
+                <div>
+
+                    <p>
+                        Available Units
+                    </p>
+
+                    <h2 id="totalUnits">
+                        0
+                    </h2>
+
+                    <span>
+                        Blood units available
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXPIRING SOON -->
+
+            <div class="summary-card">
+
+                <div class="card-icon warning-icon">
+                    ⚠
+                </div>
+
+                <div>
+
+                    <p>
+                        Expiring Soon
+                    </p>
+
+                    <h2 id="expiringUnits">
+                        0
+                    </h2>
+
+                    <span>
+                        Within 7 days
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BLOOD GROUPS -->
+
+            <div class="summary-card">
+
+                <div class="card-icon group-icon">
+                    +
+                </div>
+
+                <div>
+
+                    <p>
+                        Blood Groups
+                    </p>
+
+                    <h2>
+                        8
+                    </h2>
+
+                    <span>
+                        Supported groups
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             CURRENT BLOOD STOCK
+        ================================================== -->
+
+        <div class="content-section">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Current Blood Stock
+                    </h2>
+
+                    <p>
+                        Available blood units by blood group
+                    </p>
+
+                </div>
+
+
+                <span class="live-label">
+                    ● Live Data
+                </span>
+
+            </div>
+
+
+
+            <div
+                    class="blood-stock-grid"
+                    id="stockContainer"
+            >
+
+                <!-- JavaScript will load stock here -->
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        A+
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        A−
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        B+
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        B−
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        AB+
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        AB−
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        O+
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+
+                <div class="blood-card">
+
+                    <div class="blood-group">
+                        O−
+                    </div>
+
+                    <div class="blood-count">
+                        0
+                    </div>
+
+                    <span>
+                        Units Available
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================== -->
+
+        <div class="content-section">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                    <p>
+                        Common blood bank operations
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+
+                <button class="action-button">
+
+                    <span>
+                        ＋
+                    </span>
+
+                    Add Donor
+
+                </button>
+
+
+                <button class="action-button">
+
+                    <span>
+                        🩸
+                    </span>
+
+                    Record Donation
+
+                </button>
+
+
+                <button class="action-button">
+
+                    <span>
+                        ▤
+                    </span>
+
+                    View Inventory
+
+                </button>
+
+
+                <button class="action-button">
+
+                    <span>
+                        ↗
+                    </span>
+
+                    Issue Blood
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         DONOR MANAGEMENT
+    ================================================== -->
+
+    <section
+            class="content-section"
+            id="donors"
+    >
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    Donor Management
+                </h2>
+
+                <p>
+                    Manage registered blood donors
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ADD DONOR FORM -->
+
+        <div class="form-card">
+
+
+            <h3>
+                Add New Donor
+            </h3>
+
+
+            <div class="form-grid">
+
+
+                <div class="input-group">
+
+                    <label>
+                        Donor Name
+                    </label>
+
+                    <input
+                            type="text"
+                            id="donorName"
+                            placeholder="Enter donor name"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Age
+                    </label>
+
+                    <input
+                            type="number"
+                            id="donorAge"
+                            min="18"
+                            max="65"
+                            placeholder="Enter age"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Blood Group
+                    </label>
+
+
+                    <select id="donorBloodGroup">
+
+                        <option value="">
+                            Select blood group
+                        </option>
+
+                        <option value="A+">
+                            A+
+                        </option>
+
+                        <option value="A-">
+                            A-
+                        </option>
+
+                        <option value="B+">
+                            B+
+                        </option>
+
+                        <option value="B-">
+                            B-
+                        </option>
+
+                        <option value="AB+">
+                            AB+
+                        </option>
+
+                        <option value="AB-">
+                            AB-
+                        </option>
+
+                        <option value="O+">
+                            O+
+                        </option>
+
+                        <option value="O-">
+                            O-
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                            type="text"
+                            id="donorPhone"
+                            placeholder="Enter phone number"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                    class="primary-button"
+                    id="addDonorButton"
+            >
+
+                Add Donor
+
+            </button>
+
+
+            <div
+                    id="donorMessage"
+                    class="message"
+            ></div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             REGISTERED DONORS
+        ================================================== -->
+
+        <div class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Registered Donors
+                    </h2>
+
+                    <p>
+                        View and manage donor records
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Name
+                        </th>
+
+                        <th>
+                            Age
+                        </th>
+
+                        <th>
+                            Blood Group
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            Last Donation
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="donorTable">
+
+                    <tr>
+
+                        <td colspan="7">
+                            Loading donors...
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         RECORD DONATION
+    ================================================== -->
+
+    <section
+            class="content-section"
+            id="donations"
+    >
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    Record Donation
+                </h2>
+
+                <p>
+                    Register a new blood donation
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-card">
+
+
+            <div class="form-grid">
+
+
+                <div class="input-group">
+
+                    <label>
+                        Donor ID
+                    </label>
+
+                    <input
+                            type="number"
+                            id="donorId"
+                            min="1"
+                            placeholder="Enter donor ID"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Collection Date
+                    </label>
+
+                    <input
+                            type="date"
+                            id="collectionDate"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Units
+                    </label>
+
+                    <input
+                            type="number"
+                            id="donationUnits"
+                            min="1"
+                            placeholder="Number of units"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Expiry Date
+                    </label>
+
+                    <input
+                            type="date"
+                            id="expiryDate"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="info-box">
+
+                <strong>
+                    Eligibility Rule:
+                </strong>
+
+                A donor must complete a minimum gap
+                of 90 days between donations.
+
+            </div>
+
+
+
+            <button
+                    class="primary-button"
+                    id="recordDonationButton"
+            >
+
+                Record Donation
+
+            </button>
+
+
+            <div
+                    id="donationMessage"
+                    class="message"
+            ></div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         BLOOD INVENTORY
+    ================================================== -->
+
+    <section
+            class="content-section"
+            id="inventory"
+    >
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    Blood Inventory
+                </h2>
+
+                <p>
+                    Monitor collected blood units
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="table-container">
+
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Blood Group
+                    </th>
+
+                    <th>
+                        Collection Date
+                    </th>
+
+                    <th>
+                        Expiry Date
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="inventoryTable">
+
+                <tr>
+
+                    <td colspan="5">
+                        Loading inventory...
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         ISSUE BLOOD
+    ================================================== -->
+
+    <section
+            class="content-section"
+            id="issue"
+    >
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    Issue Blood
+                </h2>
+
+                <p>
+                    Issue available blood units against a request
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-card">
+
+
+            <div class="form-grid">
+
+
+                <div class="input-group">
+
+                    <label>
+                        Blood Group
+                    </label>
+
+
+                    <select id="issueBloodGroup">
+
+                        <option value="">
+                            Select blood group
+                        </option>
+
+                        <option value="A+">
+                            A+
+                        </option>
+
+                        <option value="A-">
+                            A-
+                        </option>
+
+                        <option value="B+">
+                            B+
+                        </option>
+
+                        <option value="B-">
+                            B-
+                        </option>
+
+                        <option value="AB+">
+                            AB+
+                        </option>
+
+                        <option value="AB-">
+                            AB-
+                        </option>
+
+                        <option value="O+">
+                            O+
+                        </option>
+
+                        <option value="O-">
+                            O-
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>
+                        Units Required
+                    </label>
+
+                    <input
+                            type="number"
+                            id="issueUnits"
+                            min="1"
+                            placeholder="Enter units"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="warning-box">
+
+                Expired blood units cannot be issued.
+
+            </div>
+
+
+
+            <button
+                    class="primary-button"
+                    id="issueBloodButton"
+            >
+
+                Issue Blood
+
+            </button>
+
+
+            <div
+                    id="issueMessage"
+                    class="message"
+            ></div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <p>
+            Blood Bank Inventory & Donor Eligibility Tracker
+        </p>
+
+        <span>
+            Java • Spring Boot • MySQL
+        </span>
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="/script.js"></script>
+
+
+</body>
+
+</html>

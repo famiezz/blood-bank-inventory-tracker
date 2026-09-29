@@ -1,0 +1,802 @@
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   BODY
+================================ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background: linear-gradient(
+            180deg,
+            #8b0000,
+            #5d0000
+    );
+
+    color: white;
+
+    padding: 28px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 10px 30px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.logo .blood-icon {
+    font-size: 32px;
+}
+
+.logo h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.logo span {
+    font-size: 11px;
+    opacity: 0.75;
+}
+
+
+/* MENU */
+
+.menu {
+    margin-top: 30px;
+}
+
+
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px 16px;
+
+    margin-bottom: 8px;
+
+    border-radius: 9px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+
+.menu-item span {
+    width: 22px;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+
+.menu-item:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+
+.menu-item.active {
+    background: white;
+
+    color: #8b0000;
+
+    font-weight: bold;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding: 18px 10px;
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+
+    color: rgba(255,255,255,0.8);
+}
+
+
+.sidebar-bottom p {
+    font-size: 12px;
+
+    margin-bottom: 5px;
+}
+
+
+.sidebar-bottom small {
+    font-size: 10px;
+
+    opacity: 0.7;
+}
+
+
+/* ================================
+   MAIN CONTENT
+================================ */
+
+.main-content {
+    margin-left: 250px;
+
+    padding: 30px 35px;
+
+    min-height: 100vh;
+}
+
+
+/* ================================
+   TOP BAR
+================================ */
+
+.topbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.topbar h1 {
+    font-size: 30px;
+
+    margin-bottom: 6px;
+
+    color: #252525;
+}
+
+
+.topbar p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+.system-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 15px;
+
+    border-radius: 25px;
+
+    background: #e9f8ef;
+
+    color: #16834b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #20a65a;
+
+    border-radius: 50%;
+}
+
+
+/* ================================
+   SUMMARY CARDS
+================================ */
+
+.summary-cards {
+    display: grid;
+
+    grid-template-columns:
+            repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+
+.summary-card {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    box-shadow:
+            0 4px 15px rgba(0,0,0,0.06);
+
+    border: 1px solid #eeeeee;
+}
+
+
+.card-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+
+.donor-icon {
+    background: #f0e8ff;
+}
+
+
+.blood-icon-card {
+    background: #ffe7e7;
+}
+
+
+.warning-icon {
+    background: #fff3d6;
+}
+
+
+.group-icon {
+    background: #e5f1ff;
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+
+.summary-card p {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.summary-card h2 {
+    font-size: 28px;
+
+    color: #333;
+
+    margin-bottom: 4px;
+}
+
+
+.summary-card span {
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* ================================
+   CONTENT SECTION
+================================ */
+
+.content-section {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow:
+            0 4px 15px rgba(0,0,0,0.04);
+}
+
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+
+.section-heading h2 {
+    font-size: 20px;
+
+    margin-bottom: 5px;
+}
+
+
+.section-heading p {
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.live-label {
+    background: #edf9f1;
+
+    color: #16834b;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* ================================
+   BLOOD STOCK
+================================ */
+
+.blood-stock-grid {
+    display: grid;
+
+    grid-template-columns:
+            repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+.blood-card {
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+
+.blood-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+            0 5px 15px rgba(0,0,0,0.08);
+
+    border-color: #d9d9d9;
+}
+
+
+.blood-group {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto 12px;
+
+    border-radius: 50%;
+
+    background: #fff0f0;
+
+    color: #8b0000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    font-size: 17px;
+}
+
+
+.blood-count {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    margin-bottom: 4px;
+}
+
+
+.blood-card span {
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* ================================
+   QUICK ACTIONS
+================================ */
+
+.quick-actions {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.action-button {
+    background: #fff5f5;
+
+    border: 1px solid #ffdede;
+
+    color: #8b0000;
+
+    padding: 13px 18px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+
+.action-button span {
+    margin-right: 7px;
+}
+
+
+.action-button:hover {
+    background: #8b0000;
+
+    color: white;
+}
+
+
+/* ================================
+   FORMS
+================================ */
+
+.form-card {
+    background: #fafafa;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    padding: 22px;
+}
+
+
+.form-card h3 {
+    margin-bottom: 20px;
+
+    font-size: 17px;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+            repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.input-group label {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+.input-group input,
+.input-group select {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: white;
+
+    font-size: 13px;
+
+    outline: none;
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #8b0000;
+
+    box-shadow:
+            0 0 0 3px rgba(139,0,0,0.08);
+}
+
+
+.primary-button {
+    background: #8b0000;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+
+.primary-button:hover {
+    background: #6f0000;
+}
+
+
+/* ================================
+   INFO / WARNING BOX
+================================ */
+
+.info-box {
+    background: #eef5ff;
+
+    border-left: 4px solid #3478db;
+
+    padding: 12px 15px;
+
+    margin-bottom: 18px;
+
+    color: #49627d;
+
+    font-size: 12px;
+
+    border-radius: 5px;
+}
+
+
+.warning-box {
+    background: #fff6df;
+
+    border-left: 4px solid #e4a51c;
+
+    padding: 12px 15px;
+
+    margin-bottom: 18px;
+
+    color: #80651d;
+
+    font-size: 12px;
+
+    border-radius: 5px;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.table-container {
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+thead {
+    background: #fafafa;
+}
+
+
+th {
+    text-align: left;
+
+    padding: 13px;
+
+    font-size: 12px;
+
+    color: #666;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+td {
+    padding: 14px 13px;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid #f0f0f0;
+
+    color: #444;
+}
+
+
+tbody tr:hover {
+    background: #fafafa;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+footer p {
+    margin-bottom: 5px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+    .summary-cards {
+        grid-template-columns:
+                repeat(2, 1fr);
+    }
+
+    .blood-stock-grid {
+        grid-template-columns:
+                repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        padding: 20px;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .blood-stock-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .blood-stock-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions {
+        flex-direction: column;
+    }
+
+    .action-button {
+        width: 100%;
+    }
+
+}
